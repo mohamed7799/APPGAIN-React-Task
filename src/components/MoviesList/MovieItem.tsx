@@ -1,14 +1,25 @@
-const MovieItem = () => {
-  return (
-    <li>
-      <img
-        className="rounded-md"
-        src="https://image.tmdb.org/t/p/original/bdgaCpdDh0J0H7ZRpDP2NJ8zxJE.jpg"
-        alt="poster"
-      />
+import { Link } from "react-router-dom";
+import { MovieHome } from "../../interfaces/MovieHomeInterface";
 
-      <h3 className="p-4 text-center font-medium capitalize">suicide squad</h3>
-    </li>
+interface Props {
+  movie: MovieHome;
+}
+
+const MovieItem = ({ movie }: Props) => {
+  return (
+    <Link to={`/movie/${movie.id}`}>
+      <li>
+        <img
+          className="rounded-md m-auto"
+          src={`https://image.tmdb.org/t/p/w185${movie.poster}`}
+          alt="poster"
+        />
+
+        <h3 className="p-4 text-center font-medium capitalize">
+          {movie.title}
+        </h3>
+      </li>
+    </Link>
   );
 };
 
