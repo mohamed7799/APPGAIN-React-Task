@@ -13,7 +13,7 @@ const MovieDetails = () => {
         import.meta.env.VITE_API_KEY
       }`
     );
-    console.log(res.data);
+
     return res.data;
   };
 
