@@ -14,7 +14,7 @@ const Home = () => {
     );
     return res.data;
   };
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
   const { data, isLoading } = useQuery(
     ["popularMovies", page],
     getPopularMovies
@@ -27,6 +27,7 @@ const Home = () => {
       <div className="p-6 flex justify-center gap-2 my-4 flex-wrap">
         {pages.map((item) => (
           <span
+            key={item}
             onClick={() => setPage(item)}
             className={`pagination-number ${
               item === page ? "bg-cyan-500 text-white" : ""
